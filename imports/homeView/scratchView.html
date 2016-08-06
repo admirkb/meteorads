@@ -1,0 +1,69 @@
+<div class="jumbotron" style="background-color:transparent; max-height:180px;">
+
+  <img src="/media/Admir01-BlackBackground.png" style="width:125px; height:125px;" />
+
+
+
+</div>
+
+<div class="container" style="background-color:transparent; max-height:180px;">
+
+  <table>
+    <tr>
+      <td style="vertical-align:top">
+        <h1 style="color:wheat">Admir Scratch</h1>
+      </td>
+    </tr>
+
+  </table>
+
+
+
+</div>
+
+
+<!--<div class="container">
+
+  <table style="width:100%;">
+    <tr>
+      <td    style="width:75%;height:75%">
+        <ad-program-view-schedule  [muted]="true"  [width]="'inherit'"  [height]="'inherit'"  style="background:red;" [customerId]="2" [channelId]="1"></ad-program-view-schedule>
+      </td>
+  </table>
+
+
+</div>-->
+
+<div style="width:100%; height:100%; vertical-align:top;border-width:0px;border-style:solid; border-color:white; margin:0px; padding:0px;"
+  *ngFor="let o of items; let key = index">
+  <table style="overflow:hidden; vertical-align:top;width:100%;background:transparent; color:white;">
+    <tr *ngIf="key==0">
+      <th style="text-align:left;">Name</th>
+    </tr>
+    <tr>
+      <td style="width:30%;">
+        <div [innerHTML]="o.name"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div style="width:100%; height:100%; vertical-align:top;border-width:0px;border-style:solid; border-color:white; margin:0px; padding:0px;"
+  *ngFor="let o of admirArrayList.items; let key = index">
+  <table style="overflow:hidden; vertical-align:top;width:100%;background:transparent; color:white;">
+    <tr *ngIf="key==0">
+      <th style="text-align:left;">Name</th>
+    </tr>
+    <tr>
+      <td style="width:30%;">
+        <div [innerHTML]="o.name"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<button (click)="Add()">Add()</button>>
+<div style="color:yellow">isReady</div>
+<div style="color:yellow" [innerHTML]="isReady"></div>
+<input type="text" style="color:black" [(ngModel)]="isReady" />
+<!--<div style="color:yellow" [isReady]="'isReady'"></div>-->

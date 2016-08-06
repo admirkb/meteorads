@@ -1,0 +1,73 @@
+import 'reflect-metadata';
+import 'zone.js/dist/zone';
+
+// Meteor
+import { Meteor } from 'meteor/meteor';
+import {Mongo} from 'meteor/mongo';
+
+// Angular
+import {Component, EventEmitter, OnInit, provide, ElementRef} from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import {AppOne} from '../client/app1';
+import {AppTwo} from '../client/app2';
+
+// Admir
+
+
+@Component({
+  selector: 'app-stub',
+  template: `<button>Click App Stub</button>`,
+  directives: []
+})
+class AppStub implements OnInit {
+
+  private fullScreen: boolean = false;
+
+  constructor(elementRef: ElementRef) {
+
+    console.log(elementRef.nativeElement.getAttribute("fullScreen"));
+    if (elementRef.nativeElement.getAttribute("fullScreen") == "true") {
+      this.fullScreen = true;
+    }
+
+
+  }
+
+  ngOnInit() {
+
+    console.log("I'm being called when component in ngOnInit from AppStub.ts");
+    console.log("this.fullScreen")
+    console.log(this.fullScreen)
+
+    try {
+      if (this.fullScreen == true) {
+        // bootstrap(AppOne);
+      }
+      else {
+        // bootstrap(AppTwo);
+      }
+
+
+    }
+    catch (Error) {
+      alert(Error.message);
+    }
+  }
+
+
+}
+
+bootstrap(AppStub);
+
+
+
+// var appStub = new AppStub(this.elementRef);
+// var appStub = bootstrap(AppStub);
+// if (this.appStub.fullScreen == true) {
+//   bootstrap(AppOne);
+// }
+// else {
+//   bootstrap(AppTwo);
+// }
+
+

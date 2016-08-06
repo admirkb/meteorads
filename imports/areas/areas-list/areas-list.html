@@ -1,0 +1,48 @@
+<!--<areas-form [hidden]="!user"></areas-form>-->
+<!--<areas-form> </areas-form>-->
+<!--<div [hidden]="user">You need to login to create new parties!</div>-->
+
+<!--<h1>Hello {{n}}</h1>-->
+
+<p-modal header="Area Maintenance: New..." [(visible)]="display" width="600">
+
+    <areas-form [areaModelItem]="data" [action]="action" (HideDialogEvent)="hideDialog($event)"> </areas-form>
+
+    <!--<div class="modal-body"  >
+
+
+
+  </div>-->
+
+</p-modal>
+
+<!--<p-modal header="Area Maintenance2: New..." [(visible)]="display" width="600">
+
+<button><Click here/button>
+  
+</p-modal>-->
+<!--<input type="text" [(ngModel)]="n" />-->
+<form class="form-inline">
+    <input type="text" class="form-control" #searchString placeholder="Search" />
+    <button type="button" class="btn btn-primary" (click)="search(searchString.value)">Search</button>
+</form>
+
+<!--<pagination [boundaryLinks]="true" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="curPage.value" class="pagination-sm"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>-->
+
+<pre class="card card-block card-header">The selected page no: {{curPage.value}}/{{ maxPagesCalc }}</pre>
+
+
+<div class="container">
+    <div class="row">
+
+        <areas-item *ngFor="let area of areas; let i = index" [areaModel]="area" [theIndex]="i" ></areas-item>
+
+
+    </div>
+    <div style="text-align:right;width:100%;">
+        <button (click)="showDialog(0)" class="btn btn-primary btn-sm">Add Area!</button>
+    </div>
+
+
+</div>

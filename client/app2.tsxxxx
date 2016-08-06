@@ -1,0 +1,39 @@
+import 'reflect-metadata';
+import 'zone.js/dist/zone';
+
+// Meteor
+import { Meteor } from 'meteor/meteor';
+import {Mongo} from 'meteor/mongo';
+
+// Angular
+import {Component, EventEmitter, OnInit, provide} from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+
+
+
+// Admir
+
+
+@Component({
+  selector: 'app-two',
+  template: `<button>Click App 2</button>`,
+  directives: []
+})
+export class AppTwo implements OnInit {
+  constructor() {
+
+
+
+
+  }
+
+  ngOnInit() {
+
+    console.log("I'm being called when component in ngOnInit from App2.ts");
+  }
+
+
+}
+
+
+

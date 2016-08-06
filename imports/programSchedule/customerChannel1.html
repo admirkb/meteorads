@@ -1,0 +1,38 @@
+<div class="container" style="max-height:180px;background:transparent;">
+
+  <table>
+    <tr>
+      <td style="vertical-align:top">
+        <h1 style="color:wheat">Customer {{_customerId}} ~ Admir Channel {{_channelId}}</h1>
+      </td>
+    </tr>
+
+  </table>
+
+
+
+</div>
+
+<img src="/media/Admir01-BlackBackground.png" style="width:125px; height:125px;position:absolute:top:0px;" />
+
+<!--<div style="width:800px; height:400px; bacground:red;border-color:yellow; border-size:2px;border-style:solid;">
+  <video controls autoplay style="object-fit:fill;" width="100%" height="100%">
+    <source src="http://res.cloudinary.com/admirtv/video/upload/admir__TV/Tudor_Brewery.mp4" type="video/mp4">
+  </video>
+</div>-->
+
+
+
+<div class="container" >
+
+  <table style="width:100%;">
+    <tr>
+      <td    style="width:320px;height:180px">
+        <ad-program-view-schedule  [muted]="false"  [width]="'640px'"  [height]="'320px'"  [customerId]="_customerId" [channelId]="_channelId" [showListing]="_showListing"></ad-program-view-schedule>
+      </td>
+  </table>
+
+
+</div>
+
+<!--<a href="./fullScreen?customerId=2&channelId=1&showListing=false" target="_blank">FullScreen</a>-->

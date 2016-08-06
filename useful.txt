@@ -1,0 +1,36 @@
+db.mediaLibraries.find( {
+    $or : [
+        { $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }] },
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $in: [1]} }] }
+    ]
+} )
+
+
+db.mediaLibraries.find( {
+    $or : [
+        { $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }] },
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $in: [thisBranch]} }] }
+    ]
+} )
+
+db.mediaLibraries.find( {
+    $or : [
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $exists: false} }] },
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $in: [1]} }] }
+    ]
+} ).count()
+
+db.mediaLibraries.find( {
+    $or : [
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $exists: false} }] },
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { days: { $in: [1]} }, { times: { $in: [1]} }, { atBranches: { $in: [1]} }] }
+    ]
+} ).count()
+
+
+db.mediaLibraries.find( {
+    $or : [
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { atBranches: { $exists: false} } ] },
+	{ $and : [{ "customerId": 2}, { "channelId": 1}, { atBranches: { $in: [1]} } ] }
+    ]
+} , {}).count()

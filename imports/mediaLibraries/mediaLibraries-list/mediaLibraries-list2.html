@@ -1,0 +1,26 @@
+
+
+
+<form class="form-inline">
+    <input type="text" class="form-control" #searchString placeholder="Search" />
+    <button type="button" class="btn btn-primary" (click)="search(searchString.value)">Search</button>
+</form>
+
+<!--<pagination [boundaryLinks]="true" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="curPage.value" class="pagination-sm"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>-->
+
+<pre class="card card-block card-header">The selected page no: {{curPage.value}}/{{ maxPagesCalc }}</pre>
+
+<div class="container">
+    <div class="row">
+
+            <media-libraries-item-2 *ngFor="let mediaLibrary of mediaLibraries; let i = index" [mediaLibraryModel]="mediaLibrary" [theIndex]="i"></media-libraries-item-2>
+
+
+    </div>
+    <div style="text-align:right;width:100%;">
+        <button (click)="showDialog(0)" class="btn btn-primary btn-sm">Add MediaLibrary!</button>
+    </div>
+
+
+</div>

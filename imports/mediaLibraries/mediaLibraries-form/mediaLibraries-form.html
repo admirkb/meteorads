@@ -1,0 +1,207 @@
+<div style="background:black;">
+  <!--<h4 class="modal-title">{{mediaLibraryModelItem.name}}</h4>-->
+
+  <form [ngFormModel]="mediaLibrarysForm" #f="ngForm">
+
+    <div *ngIf="mediaLibraryModelItem.imageAsData != null" layout-gt-sm="row" style="text-align:center">
+      <img [(src)]="mediaLibraryModelItem.imageAsData" />
+    </div>
+
+    <div layout-gt-sm="row">
+
+      <div style="display:none;">
+        <label class="copy1">New MediaLibrary: </label>
+        <input [(ngModel)]="mediaLibraryModelItem._id" ngControl="_id" placeholder="Name" style="color:black;" />
+        <!--<input [(ngModel)]="mediaLibraryModelItem.days"  ngControl="days" placeholder="days" />-->
+        <input [(ngModel)]="mediaLibraryModelItem.times" ngControl="times" />
+        <input [(ngModel)]="mediaLibraryModelItem.createDate" ngControl="createDate" />
+        <input [(ngModel)]="mediaLibraryModelItem.imageAsData" ngControl="imageAsData" placeholder="imageAsData" />
+        <input [(ngModel)]="mediaLibraryModelItem.width" ngControl="width" />
+        <input [(ngModel)]="mediaLibraryModelItem.height" ngControl="height" />
+      </div>
+
+
+      <div *ngIf="action == 'add' || action == 'update'">
+
+        <table style="background-color:black;width:100%;">
+          <tr>
+            <td style="text-align:left;color:red;">Heading</td>
+            <td>
+              <input style="color:white;background:black;" type="text" [(ngModel)]="mediaLibraryModelItem.heading" ngControl="heading"
+                placeholder="Heading" required/>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;color:red;">Detail</td>
+            <td>
+              <input style="color:white;background:black;" type="text" [(ngModel)]="mediaLibraryModelItem.detail" ngControl="detail" placeholder="Detail"
+                minlength="3" />
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;color:red;">Duration</td>
+            <td>
+              <input style="color:white;background:black;" type="text" [(ngModel)]="mediaLibraryModelItem.duration" ngControl="duration"
+                placeholder="Duration" />
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align:left;color:red;">Html</td>
+            <td>
+              <input style="color:white;background:black;" type="text" [(ngModel)]="mediaLibraryModelItem.html" ngControl="html" placeholder="Html"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align:left;color:red;">Weekdays</td>
+            <td>
+
+              <table>
+                <tr>
+                  <td style="color:yellow">Su</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Su" />
+                  </td>
+                  <td style="color:yellow">Mo</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Mo" />
+                  </td>
+                  <td style="color:yellow">Tu</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Tu" />
+                  </td>
+                  <td style="color:yellow">We</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.We" />
+                  </td>
+                  <td style="color:yellow">Th</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Th" />
+                  </td>
+                  <td style="color:yellow">Fr</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Fr" />
+                  </td>
+                  <td style="color:yellow">Sa</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.weekDays.Sa" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="text-align:left;color:red;vertical-align:top;">Times</td>
+            <td>
+
+              <table>
+                <tr>
+                  <td style="color:yellow">00</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['00']" />
+                  </td>
+                  <td style="color:yellow">01</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['01']" />
+                  </td>
+                  <td style="color:yellow">02</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['02']" />
+                  </td>
+                  <td style="color:yellow">03</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['03']" />
+                  </td>
+                  <td style="color:yellow">04</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['04']" />
+                  </td>
+                  <td style="color:yellow">05</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['05']" />
+                  </td>
+                  <td style="color:yellow">06</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['06']" />
+                  </td>
+                  <td style="color:yellow">07</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['07']" />
+                  </td>
+                  <td style="color:yellow">08</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['08']" />
+                  </td>
+                  <td style="color:yellow">09</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['09']" />
+                  </td>
+                  <td style="color:yellow">10</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['10']" />
+                  </td>
+                  <td style="color:yellow">11</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['11']" />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color:yellow">12</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['12']" />
+                  </td>
+                  <td style="color:yellow">13</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['13']" />
+                  </td>
+                  <td style="color:yellow">14</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['14']" />
+                  </td>
+                  <td style="color:yellow">15</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['15']" />
+                  </td>
+                  <td style="color:yellow">16</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['16']" />
+                  </td>
+                  <td style="color:yellow">17</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['17']" />
+                  </td>
+                  <td style="color:yellow">18</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['18']" />
+                  </td>
+                  <td style="color:yellow">19</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['19']" />
+                  </td>
+                  <td style="color:yellow">20</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['20']" />
+                  </td>
+                  <td style="color:yellow">21</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['21']" />
+                  </td>
+                  <td style="color:yellow">22</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['22']" />
+                  </td>
+                  <td style="color:yellow">23</td>
+                  <td><input type="checkbox" [(ngModel)]="mediaLibraryModelItem.dayTimes['23']" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+
+
+
+        <ad-media-upload (ImageChangedEvent)="ImageChangedEvent($event)"></ad-media-upload>
+      </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="footer">
+
+
+      <div style="text-align:right; background:transparent; width:100%;">
+        <button *ngIf="action == 'add'" (click)="addMediaLibrary(f.value)" class="btn btn-primary btn-sm">Add MediaLibrary!</button>
+        <button *ngIf="action == 'update'" (click)="updateMediaLibrary(f.value)" class="btn btn-primary btn-sm">Modify MediaLibrary!</button>
+        <button *ngIf="action == 'delete'" (click)="deleteMediaLibrary(f.value)" class="btn btn-primary btn-sm">Delete MediaLibrary!</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="hideDialog()">Close</button>
+      </div>
+
+
+
+
+    </div>
+  </form>
+
+
+
+
+</div>
+<hr/>

@@ -1,0 +1,34 @@
+<!--<users-form [hidden]="!user"></users-form>-->
+<!--<users-form> </users-form>-->
+<!--<div [hidden]="user">You need to login to create new parties!</div>-->
+
+<!--<h1>Hello {{n}}</h1>-->
+
+
+<!--<p-modal header="User Maintenance2: New..." [(visible)]="display" width="600">
+
+<button><Click here/button>
+  
+</p-modal>-->
+<!--<input type="text" [(ngModel)]="n" />-->
+
+<!--<pagination [boundaryLinks]="true" [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [(ngModel)]="curPage.value" class="pagination-sm"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>-->
+
+<pre class="card card-block card-header">The selected page no: {{curPage.value}}/{{ maxPagesCalc }}</pre>
+
+<div class="container">
+    <div class="row">
+
+        <users-item *ngFor="let user of users; let i = index" [userModel]="user" [theIndex]="i"></users-item>
+
+
+    </div>
+
+    <div style="text-align:right;width:100%;">
+        <form class="form-inline">
+            <input type="text" class="form-control" #searchString placeholder="Search" />
+            <button type="button" class="btn btn-primary" (click)="search(searchString.value)">Search</button>
+        </form>
+    </div>
+</div>

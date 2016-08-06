@@ -1,0 +1,57 @@
+import 'reflect-metadata';
+import 'zone.js/dist/zone';
+
+// Meteor
+import { Meteor } from 'meteor/meteor';
+import {Mongo} from 'meteor/mongo';
+
+// Angular
+import {Component, EventEmitter, OnInit, provide} from '@angular/core';
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { APP_BASE_HREF } from '@angular/common';
+import { provideRouter, RouterConfig, ROUTER_DIRECTIVES, Router } from '@angular/router';
+
+// import {googleMaps} from 'google-maps';
+
+// Admir
+import {Bugs} from '../imports/api/bugs';
+import {BugsList} from '../imports/bugs/bugs-list/bugs-list';
+
+
+
+import template from './app.html';
+
+export const routes: RouterConfig = [
+  { path: '', component: BugsList },
+  { path: 'bugs', component: BugsList }
+
+];
+
+export const APP_ROUTER_PROVIDERS = [
+  provideRouter(routes)
+];
+
+//  template: '<button>Click Here</button>',
+@Component({
+  selector: 'app',
+  template,
+  directives: [ROUTER_DIRECTIVES, BugsList]
+})
+class AdmirMessagingWatch implements OnInit {
+  constructor() {
+
+
+
+
+  }
+
+  ngOnInit() {
+
+    console.log("I'm being called when component is initalized after constructor method in BasicAngular2 in app.ts");
+  }
+
+
+}
+
+
+// bootstrap(AdmirMessagingWatch, [APP_ROUTER_PROVIDERS, provide(APP_BASE_HREF, { useValue: '/' })]);

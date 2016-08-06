@@ -1,0 +1,171 @@
+<div style="background:black;">
+  <h4 class="modal-title">{{branchModelItem.address}}</h4>
+
+  <form [ngFormModel]="branchesForm" #f="ngForm">
+
+    <div *ngIf="branchModelItem.imageAsData != null" layout-gt-sm="row" style="text-align:center">
+      <img [(src)]="branchModelItem.imageAsData" />
+    </div>
+
+    <div layout-gt-sm="row">
+
+      <div style="display:none;">
+        <label class="copy1">New Branche: </label>
+        <input [(ngModel)]="branchModelItem._id" ngControl="_id" placeholder="Name" style="color:black;" />
+        <input [(ngModel)]="branchModelItem.imageAsData" ngControl="imageAsData" placeholder="imageAsData" />
+        <input [(ngModel)]="branchModelItem.areaDescription" ngControl="areaDescription" />
+        <input [(ngModel)]="branchModelItem.areaId" ngControl="areaId" />
+      </div>
+
+
+      <div *ngIf="action == 'add' || action == 'update'">
+
+        <p-tabView>
+          <p-tabPanel header="Details">
+            <table style="background-color:black;width:100%;">
+              <tr>
+                <td style="text-align:left;color:red;">Address</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.address" ngControl="address" placeholder="Name"
+                    required/>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">Description</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.description" ngControl="description"
+                    placeholder="Name" required/>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">Town</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.town" ngControl="town" placeholder="Name"
+                    required/>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">County</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.county" ngControl="county" placeholder="Name"
+                    required/>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">Country</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.country" ngControl="country" placeholder="Name"
+                    required/>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">Zip</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.zip" ngControl="zip" placeholder="Name"
+                    required/>
+                </td>
+              </tr>
+
+            </table>
+          </p-tabPanel>
+          <p-tabPanel header="Areas">
+
+
+
+
+            <table style="background-color:transparent;width:100%;">
+              <tr>
+                <td style="text-align:left;color:red;">
+                  <div class="btn-group" dropdown>
+                    <button id="split-button" type="button" class="btn btn-danger">Area</button>
+                    <button type="button" class="btn btn-danger dropdown-toggle" dropdownToggle>
+                      <span class="caret"></span>
+                      <span class="sr-only">Split button!</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
+                      <li *ngFor="let area of areaItems">
+                        <a (click)="dropDownAreaClick(area, i)" class="dropdown-item" href="#">{{area.description}}</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+                </td>
+                <td>
+
+                </td>
+                <td style="text-align:right; width:10%;">
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.areaDescription" minlength="3" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td style="text-align:right; width:10%;">
+
+                </td>
+              </tr>
+            </table>
+
+          </p-tabPanel>
+
+          <p-tabPanel header="Miscellaneous">
+
+
+            <table style="background-color:transparent;width:100%;">
+              <tr>
+                <td style="text-align:left;color:red;">Width</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.width" ngControl="width" placeholder="Width"
+                    minlength="3" />
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:left;color:red;">Height</td>
+                <td>
+                  <input style="color:white;background:black;" type="text" [(ngModel)]="branchModelItem.height" ngControl="height" placeholder="Height"
+                    minlength="3" />
+                </td>
+              </tr>
+            </table>
+          </p-tabPanel>
+          <!--<p-tabPanel header="Component Directive here.">
+
+          </p-tabPanel>-->
+        </p-tabView>
+
+        <ad-media-upload (ImageChangedEvent)="ImageChangedEvent($event)"></ad-media-upload>
+      </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="footer">
+
+
+      <div style="text-align:right; background:transparent; width:100%;">
+        <button *ngIf="action == 'add'" (click)="addBranch(f.value)" class="btn btn-danger btn-sm">Add Branch!</button>
+        <button *ngIf="action == 'update'" (click)="updateBranch(f.value)" class="btn btn-danger btn-sm">Modify Branch!</button>
+        <button *ngIf="action == 'delete'" (click)="deleteBranch(f.value)" class="btn btn-danger btn-sm">Delete Branch!</button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="cancelBranch(f.value)">Cancel</button>
+      </div>
+
+
+
+
+    </div>
+  </form>
+
+
+
+
+</div>
+<hr/>
+
+<!--<ng-include src="/imports/branches-form/branches-tab1.html"></ng-include>-->
